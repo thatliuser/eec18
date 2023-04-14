@@ -1,5 +1,5 @@
 Analysis & Synthesis report for 1
-Fri Apr 14 09:55:55 2023
+Fri Apr 14 10:21:15 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -43,16 +43,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Apr 14 09:55:55 2023       ;
+; Analysis & Synthesis Status        ; Successful - Fri Apr 14 10:21:15 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; 1                                           ;
 ; Top-level Entity Name              ; 1                                           ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 11                                          ;
-;     Total combinational functions  ; 11                                          ;
-;     Dedicated logic registers      ; 4                                           ;
-; Total registers                    ; 4                                           ;
-; Total pins                         ; 8                                           ;
+; Total logic elements               ; 19                                          ;
+;     Total combinational functions  ; 19                                          ;
+;     Dedicated logic registers      ; 8                                           ;
+; Total registers                    ; 8                                           ;
+; Total pins                         ; 15                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -171,8 +171,8 @@ https://fpgasoftware.intel.com/eula.
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                       ; Library ;
 +----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------+---------+
 ; 1.bdf                            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/liuser/Documents/eec18/1/1.bdf                            ;         ;
-; 7447.bdf                         ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/others/maxplus2/7447.bdf  ;         ;
 ; 74190.bdf                        ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/others/maxplus2/74190.bdf ;         ;
+; 7447.bdf                         ; yes             ; Megafunction                       ; c:/intelfpga_lite/19.1/quartus/libraries/others/maxplus2/7447.bdf  ;         ;
 +----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------+---------+
 
 
@@ -181,30 +181,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------------+
 ; Resource                                    ; Usage            ;
 +---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 11               ;
+; Estimated Total logic elements              ; 19               ;
 ;                                             ;                  ;
-; Total combinational functions               ; 11               ;
+; Total combinational functions               ; 19               ;
 ; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 6                ;
-;     -- 3 input functions                    ; 4                ;
-;     -- <=2 input functions                  ; 1                ;
+;     -- 4 input functions                    ; 12               ;
+;     -- 3 input functions                    ; 3                ;
+;     -- <=2 input functions                  ; 4                ;
 ;                                             ;                  ;
 ; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 11               ;
+;     -- normal mode                          ; 19               ;
 ;     -- arithmetic mode                      ; 0                ;
 ;                                             ;                  ;
-; Total registers                             ; 4                ;
-;     -- Dedicated logic registers            ; 4                ;
+; Total registers                             ; 8                ;
+;     -- Dedicated logic registers            ; 8                ;
 ;     -- I/O registers                        ; 0                ;
 ;                                             ;                  ;
-; I/O pins                                    ; 8                ;
+; I/O pins                                    ; 15               ;
 ;                                             ;                  ;
 ; Embedded Multiplier 9-bit elements          ; 0                ;
 ;                                             ;                  ;
 ; Maximum fan-out node                        ; 74190:counter|48 ;
-; Maximum fan-out                             ; 11               ;
-; Total fan-out                               ; 60               ;
-; Average fan-out                             ; 1.94             ;
+; Maximum fan-out                             ; 12               ;
+; Total fan-out                               ; 109              ;
+; Average fan-out                             ; 1.91             ;
 +---------------------------------------------+------------------+
 
 
@@ -213,8 +213,9 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |1                         ; 11 (0)              ; 4 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |1                  ; 1           ; work         ;
-;    |74190:counter|         ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |1|74190:counter    ; 74190       ; work         ;
+; |1                         ; 19 (1)              ; 8 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 15   ; 0            ; 0          ; |1                  ; 1           ; work         ;
+;    |74190:counter|         ; 5 (5)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |1|74190:counter    ; 74190       ; work         ;
+;    |74190:mod10|           ; 6 (6)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |1|74190:mod10      ; 74190       ; work         ;
 ;    |7447:convert|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |1|7447:convert     ; 7447        ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -225,7 +226,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 4     ;
+; Total registers                              ; 8     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -240,17 +241,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 8                           ;
-; cycloneiii_ff         ; 4                           ;
-;     plain             ; 4                           ;
-; cycloneiii_lcell_comb ; 11                          ;
-;     normal            ; 11                          ;
-;         1 data inputs ; 1                           ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 6                           ;
+; boundary_port         ; 15                          ;
+; cycloneiii_ff         ; 8                           ;
+;     plain             ; 8                           ;
+; cycloneiii_lcell_comb ; 19                          ;
+;     normal            ; 19                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 12                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.94                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.38                        ;
 +-----------------------+-----------------------------+
 
 
@@ -269,28 +270,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Fri Apr 14 09:55:44 2023
+    Info: Processing started: Fri Apr 14 10:21:05 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off 1 -c 1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file 1.bdf
     Info (12023): Found entity 1: 1
 Info (12127): Elaborating entity "1" for the top level hierarchy
+Warning (275011): Block or symbol "NOT" of instance "inst4" overlaps another block or symbol
+Info (12128): Elaborating entity "74190" for hierarchy "74190:mod10"
+Info (12130): Elaborated megafunction instantiation "74190:mod10"
 Info (12128): Elaborating entity "7447" for hierarchy "7447:convert"
 Info (12130): Elaborated megafunction instantiation "7447:convert"
-Info (12128): Elaborating entity "74190" for hierarchy "74190:counter"
-Info (12130): Elaborated megafunction instantiation "74190:counter"
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 19 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 7 output pins
-    Info (21061): Implemented 11 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4803 megabytes
-    Info: Processing ended: Fri Apr 14 09:55:55 2023
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:28
+Info (21057): Implemented 34 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 13 output pins
+    Info (21061): Implemented 19 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4793 megabytes
+    Info: Processing ended: Fri Apr 14 10:21:15 2023
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:27
 
 
