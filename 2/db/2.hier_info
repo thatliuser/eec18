@@ -1,0 +1,27 @@
+|sop
+HEX0[0] <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[1] <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[2] <= inst9.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[3] <= inst10.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[4] <= inst31.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[5] <= <GND>
+HEX0[6] <= inst32.DB_MAX_OUTPUT_PORT_TYPE
+SW[0] => inst3.IN2
+SW[0] => inst5.IN1
+SW[0] => inst2.IN0
+SW[0] => inst8.IN1
+SW[0] => inst13.IN1
+SW[0] => inst32.IN2
+SW[1] => inst1.IN0
+SW[1] => inst6.IN1
+SW[1] => inst30.IN1
+SW[1] => inst4.IN1
+SW[1] => inst13.IN0
+SW[2] => inst3.IN0
+SW[2] => inst5.IN0
+SW[2] => inst6.IN0
+SW[2] => inst30.IN0
+SW[2] => inst.IN0
+SW[2] => inst32.IN0
+
+
