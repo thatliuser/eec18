@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri May 05 10:00:34 2023
+Analysis & Synthesis Status : Successful - Fri May 05 11:13:06 2023
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : 3
-Top-level Entity Name : part_b
+Top-level Entity Name : part_c
 Family : MAX 10
-Total logic elements : 6
-    Total combinational functions : 6
+Total logic elements : 15
+    Total combinational functions : 15
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 17
+Total pins : 31
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
