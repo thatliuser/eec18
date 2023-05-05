@@ -1,0 +1,215 @@
+# Reading D:/apps/quartus-19.1/modelsim_ase/tcl/vsim/pref.tcl
+# do 3_run_msim_gate_verilog.do
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work gate_work 
+# Copying D:/apps/quartus-19.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+. {3.vo}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:32:44 on May 05,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+." 3.vo 
+# -- Compiling module \3 
+# -- Compiling module hard_block
+# 
+# Top level modules:
+# 	\3 
+# End time: 00:32:44 on May 05,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+do sim.tcl
+# vsim -gui -l msim_transcript work.\3  -L altera_ver -L fiftyfivenm_ver 
+# Start time: 00:34:35 on May 05,2023
+# Loading work.\3 
+# Loading work.hard_block
+# Loading fiftyfivenm_ver.fiftyfivenm_lcell_comb
+# Loading fiftyfivenm_ver.fiftyfivenm_io_obuf
+# Loading fiftyfivenm_ver.fiftyfivenm_io_ibuf
+# Loading fiftyfivenm_ver.fiftyfivenm_unvm
+# Loading fiftyfivenm_ver.fiftyfivenm_adcblock
+# ** Warning: (vsim-3017) 3.vo(531): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /\3 /\~QUARTUS_CREATED_ADC1~  File: /build/swbuild/SJ/nightly/19.1std/670/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) 3.vo(531): [TFMPC] - Missing connection for port 'clk_dft'.
+# ** Warning: (vsim-3017) 3.vo(554): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /\3 /\~QUARTUS_CREATED_ADC2~  File: /build/swbuild/SJ/nightly/19.1std/670/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) 3.vo(554): [TFMPC] - Missing connection for port 'clk_dft'.
+add wave -position insertpoint  \
+{sim:/\3 /HEX0}
+# Note :: PA Debug File '' not found. PA Dataflow Coloring not enabled.
+add wave -position insertpoint  \
+{sim:/\3 /HEX1}
+add wave -position insertpoint  \
+{sim:/\3 /SW}
+radix -hexadecimal {sim:/\3 /SW}
+# ** Error: (vish-4016) Invalid radix value: sim:/\3 /SW.
+# Usage: radix [-binary | -octal | -decimal | -hexadecimal | -unsigned | -ascii | -time] [-enumnumeric | -enumsymbolic | -showbase | -symbolic]
+radix -hexadecimal 
+# hexadecimal
+add wave -position insertpoint {sim:/\3 /SW} -radix binary
+# Missing signal name or pattern.
+add wave -position insertpoint {sim:/\3 /SW} -radix binary
+# Missing signal name or pattern.
+add wave -position insertpoint {sim:/\3 /SW} binary
+# (vish-4014) No objects found matching 'binary'.
+add wave -position insertpoint {sim:/\3 /SW} -binary
+# Missing signal name or pattern.
+add wave -position insertpoint -binary {sim:/\3 /SW}
+quit -sim
+# End time: 00:40:51 on May 05,2023, Elapsed time: 0:06:16
+# Errors: 5, Warnings: 4
+do sim.tcl
+# vsim -gui -l msim_transcript work.\3  -L altera_ver -L fiftyfivenm_ver 
+# Start time: 00:40:57 on May 05,2023
+# Loading work.\3 
+# Loading work.hard_block
+# Loading fiftyfivenm_ver.fiftyfivenm_lcell_comb
+# Loading fiftyfivenm_ver.fiftyfivenm_io_obuf
+# Loading fiftyfivenm_ver.fiftyfivenm_io_ibuf
+# Loading fiftyfivenm_ver.fiftyfivenm_unvm
+# Loading fiftyfivenm_ver.fiftyfivenm_adcblock
+# ** Warning: (vsim-3017) 3.vo(531): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /\3 /\~QUARTUS_CREATED_ADC1~  File: /build/swbuild/SJ/nightly/19.1std/670/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) 3.vo(531): [TFMPC] - Missing connection for port 'clk_dft'.
+# ** Warning: (vsim-3017) 3.vo(554): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /\3 /\~QUARTUS_CREATED_ADC2~  File: /build/swbuild/SJ/nightly/19.1std/670/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) 3.vo(554): [TFMPC] - Missing connection for port 'clk_dft'.
+# hexadecimal
+# ** Error: (vish-4014) No objects found matching 'insertpoint'.
+# Error in macro ./sim.tcl line 8
+# (vish-4014) No objects found matching 'insertpoint'.
+#     while executing
+# "add wave -position -binary insertpoint  \
+# {sim:/\3 /SW}"
+quit -sim
+# End time: 00:41:24 on May 05,2023, Elapsed time: 0:00:27
+# Errors: 3, Warnings: 4
+do sim.tcl
+# vsim -gui -l msim_transcript work.\3  -L altera_ver -L fiftyfivenm_ver 
+# Start time: 00:41:27 on May 05,2023
+# Loading work.\3 
+# Loading work.hard_block
+# Loading fiftyfivenm_ver.fiftyfivenm_lcell_comb
+# Loading fiftyfivenm_ver.fiftyfivenm_io_obuf
+# Loading fiftyfivenm_ver.fiftyfivenm_io_ibuf
+# Loading fiftyfivenm_ver.fiftyfivenm_unvm
+# Loading fiftyfivenm_ver.fiftyfivenm_adcblock
+# ** Warning: (vsim-3017) 3.vo(531): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /\3 /\~QUARTUS_CREATED_ADC1~  File: /build/swbuild/SJ/nightly/19.1std/670/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) 3.vo(531): [TFMPC] - Missing connection for port 'clk_dft'.
+# ** Warning: (vsim-3017) 3.vo(554): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /\3 /\~QUARTUS_CREATED_ADC2~  File: /build/swbuild/SJ/nightly/19.1std/670/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) 3.vo(554): [TFMPC] - Missing connection for port 'clk_dft'.
+# hexadecimal
+force -drive {sim:/\3 /SW} 0000 0
+force -drive {sim:/\3 /SW} 0 0
+force -drive {sim:/\3 /SW} 0x2 0
+force -drive {sim:/\3 /SW} 0 0
+force -drive {sim:/\3 /SW} 0000 0
+force -drive {sim:/\3 /SW} 0000 0
+run 20ns
+force -drive {sim:/\3 /SW} 0001 0
+run 20ns
+force -drive {sim:/\3 /SW} 10 0
+run 20ns
+force -drive {sim:/\3 /SW} 0 0
+run 20ns
+force -drive {sim:/\3 /SW} 5 0
+run 20ns
+force -drive {sim:/\3 /SW} 9 0
+run 20ns
+force -drive {sim:/\3 /SW} 10 0
+run 20ns
+force -drive {sim:/\3 /SW} 10#10 0
+run 20ns
+force -drive {sim:/\3 /SW} 10#11 0
+run 20ns
+force -drive {sim:/\3 /SW} 10#15 0
+run 20ns
+force -drive {sim:/\3 /SW} 10#9 0
+run 20ns
+force -drive {sim:/\3 /SW} 10#10 0
+run 20ns
+force -drive {sim:/\3 /SW} 10#12 0
+run 20ns
+test=2
+# invalid command name "test=2"
+set test 2
+# 2
+echo 2
+# 2
+echo test
+# test
+echo $test
+# 2
+for {set i 0} {$i < 16} {incr i} { puts $i }
+# 0
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# 10
+# 11
+# 12
+# 13
+# 14
+# 15
+for {set i 0} {$i < 16} {incr i} { }
+for {set i 0} {$i < 16} {incr i} { force -drive {sim:/\3 /SW} 10#$i 0; run 20 ns}
+do iter.tcl
+restart
+# ** Warning: (vsim-3017) 3.vo(531): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /\3 /\~QUARTUS_CREATED_ADC1~  File: /build/swbuild/SJ/nightly/19.1std/670/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) 3.vo(531): [TFMPC] - Missing connection for port 'clk_dft'.
+# ** Warning: (vsim-3017) 3.vo(554): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /\3 /\~QUARTUS_CREATED_ADC2~  File: /build/swbuild/SJ/nightly/19.1std/670/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) 3.vo(554): [TFMPC] - Missing connection for port 'clk_dft'.
+do iter.tcl
+gets stdin
+stdin>  hello
+# hello
+do iter.tcl
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+
+stdin>  stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+do iter.tcl
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+stdin>  
+# End time: 00:49:41 on May 05,2023, Elapsed time: 0:08:14
+# Errors: 1, Warnings: 8

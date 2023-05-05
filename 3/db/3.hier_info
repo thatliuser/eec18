@@ -1,0 +1,102 @@
+|3
+HEX0[0] <= 7447:7seg.OA
+HEX0[1] <= 7447:7seg.OB
+HEX0[2] <= 7447:7seg.OC
+HEX0[3] <= 7447:7seg.OD
+HEX0[4] <= 7447:7seg.OE
+HEX0[5] <= 7447:7seg.OF
+HEX0[6] <= 7447:7seg.OG
+SW[0] => compare:cmp.D
+SW[0] => a:a.C
+SW[0] => 74157:mux.A4
+SW[1] => compare:cmp.C
+SW[1] => a:a.B
+SW[1] => 74157:mux.A3
+SW[2] => compare:cmp.B
+SW[2] => a:a.A
+SW[2] => 74157:mux.A2
+SW[3] => 74157:mux.A1
+SW[3] => compare:cmp.A
+HEX1[0] <= b:b.d0
+HEX1[1] <= b:b.d1
+HEX1[2] <= b:b.d2
+HEX1[3] <= b:b.d3
+HEX1[4] <= b:b.d4
+HEX1[5] <= b:b.d5
+HEX1[6] <= b:b.d6
+
+
+|3|7447:7seg
+OG <= 87.DB_MAX_OUTPUT_PORT_TYPE
+C => 25.IN0
+LTN => 25.IN1
+LTN => 27.IN1
+LTN => 29.IN1
+LTN => 13.IN5
+LTN => 38.IN3
+BIN => 37.IN0
+B => 27.IN0
+D => 14.IN0
+A => 29.IN0
+RBIN => 15.IN0
+OF <= 86.DB_MAX_OUTPUT_PORT_TYPE
+OE <= 85.DB_MAX_OUTPUT_PORT_TYPE
+RBON <= 13.DB_MAX_OUTPUT_PORT_TYPE
+OD <= 84.DB_MAX_OUTPUT_PORT_TYPE
+OC <= 83.DB_MAX_OUTPUT_PORT_TYPE
+OB <= 82.DB_MAX_OUTPUT_PORT_TYPE
+OA <= 81.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|3|74157:mux
+Y4 <= 25.DB_MAX_OUTPUT_PORT_TYPE
+A4 => 20.IN0
+GN => 12.IN0
+GN => 13.IN0
+SEL => 12.IN1
+SEL => 1.IN0
+B4 => 21.IN0
+Y3 <= 24.DB_MAX_OUTPUT_PORT_TYPE
+A3 => 18.IN0
+B3 => 19.IN0
+Y2 <= 23.DB_MAX_OUTPUT_PORT_TYPE
+A2 => 16.IN0
+B2 => 17.IN0
+Y1 <= 22.DB_MAX_OUTPUT_PORT_TYPE
+A1 => 14.IN0
+B1 => 15.IN0
+
+
+|3|compare:cmp
+Z <= cmp_ab_ac.DB_MAX_OUTPUT_PORT_TYPE
+C => cmp_ac.IN0
+A => cmp_ac.IN1
+A => cmp_ab.IN0
+B => cmp_ab.IN1
+D => ~NO_FANOUT~
+
+
+|3|a:a
+d2 <= a_ab.DB_MAX_OUTPUT_PORT_TYPE
+A => a_ab.IN0
+B => a_ab.IN1
+B => a_not_b.IN0
+d1 <= a_not_b.DB_MAX_OUTPUT_PORT_TYPE
+d0 <= C.DB_MAX_OUTPUT_PORT_TYPE
+C => d0.DATAIN
+
+
+|3|b:b
+d6 <= <VCC>
+d5 <= Z.DB_MAX_OUTPUT_PORT_TYPE
+Z => d5.DATAIN
+Z => d4.DATAIN
+Z => d3.DATAIN
+Z => d0.DATAIN
+d4 <= Z.DB_MAX_OUTPUT_PORT_TYPE
+d3 <= Z.DB_MAX_OUTPUT_PORT_TYPE
+d2 <= <GND>
+d1 <= <GND>
+d0 <= Z.DB_MAX_OUTPUT_PORT_TYPE
+
+
