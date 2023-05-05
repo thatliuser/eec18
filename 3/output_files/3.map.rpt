@@ -1,5 +1,5 @@
 Analysis & Synthesis report for 3
-Fri May 05 00:25:03 2023
+Fri May 05 00:58:06 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -43,10 +43,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 05 00:25:03 2023       ;
+; Analysis & Synthesis Status        ; Successful - Fri May 05 00:58:05 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; 3                                           ;
-; Top-level Entity Name              ; 3                                           ;
+; Top-level Entity Name              ; part_a                                      ;
 ; Family                             ; MAX 10                                      ;
 ; Total logic elements               ; 8                                           ;
 ;     Total combinational functions  ; 8                                           ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; 3                  ; 3                  ;
+; Top-level entity name                                            ; part_a             ; 3                  ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -164,18 +164,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                               ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                     ; Library ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------+---------+
-; 3.bdf                            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/pie/Documents/src/irl/eec18/3/3.bdf                     ;         ;
-; compare.bdf                      ; yes             ; User Block Diagram/Schematic File  ; C:/Users/pie/Documents/src/irl/eec18/3/compare.bdf               ;         ;
-; a.bdf                            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/pie/Documents/src/irl/eec18/3/a.bdf                     ;         ;
-; b.bdf                            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/pie/Documents/src/irl/eec18/3/b.bdf                     ;         ;
-; 7447.bdf                         ; yes             ; Megafunction                       ; d:/apps/quartus-19.1/quartus/libraries/others/maxplus2/7447.bdf  ;         ;
-; 74157.bdf                        ; yes             ; Megafunction                       ; d:/apps/quartus-19.1/quartus/libraries/others/maxplus2/74157.bdf ;         ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------------------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                                ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+------------------------------------------+------------------------------------------------------------------+---------+
+; compare.bdf                      ; yes             ; User Block Diagram/Schematic File        ; C:/Users/pie/Documents/src/irl/eec18/3/compare.bdf               ;         ;
+; a.bdf                            ; yes             ; User Block Diagram/Schematic File        ; C:/Users/pie/Documents/src/irl/eec18/3/a.bdf                     ;         ;
+; b.bdf                            ; yes             ; User Block Diagram/Schematic File        ; C:/Users/pie/Documents/src/irl/eec18/3/b.bdf                     ;         ;
+; part_a.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; C:/Users/pie/Documents/src/irl/eec18/3/part_a.bdf                ;         ;
+; 7447.bdf                         ; yes             ; Megafunction                             ; d:/apps/quartus-19.1/quartus/libraries/others/maxplus2/7447.bdf  ;         ;
+; 74157.bdf                        ; yes             ; Megafunction                             ; d:/apps/quartus-19.1/quartus/libraries/others/maxplus2/74157.bdf ;         ;
++----------------------------------+-----------------+------------------------------------------+------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -215,9 +215,9 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |3                         ; 8 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 18   ; 0            ; 0          ; |3                  ; 3           ; work         ;
-;    |7447:7seg|             ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |3|7447:7seg        ; 7447        ; work         ;
-;    |compare:cmp|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |3|compare:cmp      ; compare     ; work         ;
+; |part_a                    ; 8 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 18   ; 0            ; 0          ; |part_a             ; part_a      ; work         ;
+;    |7447:7seg|             ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |part_a|7447:7seg   ; 7447        ; work         ;
+;    |compare:cmp|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |part_a|compare:cmp ; compare     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -259,7 +259,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -269,19 +269,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Fri May 05 00:24:55 2023
+    Info: Processing started: Fri May 05 00:57:51 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off 3 -c 3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file 3.bdf
-    Info (12023): Found entity 1: 3
+Warning (12019): Can't analyze file -- file 3.bdf is missing
 Info (12021): Found 1 design units, including 1 entities, in source file compare.bdf
     Info (12023): Found entity 1: compare
 Info (12021): Found 1 design units, including 1 entities, in source file a.bdf
     Info (12023): Found entity 1: a
 Info (12021): Found 1 design units, including 1 entities, in source file b.bdf
     Info (12023): Found entity 1: b
-Info (12127): Elaborating entity "3" for the top level hierarchy
+Warning (12125): Using design file part_a.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: part_a
+Info (12127): Elaborating entity "part_a" for the top level hierarchy
 Info (12128): Elaborating entity "7447" for hierarchy "7447:7seg"
 Info (12130): Elaborated megafunction instantiation "7447:7seg"
 Info (12128): Elaborating entity "74157" for hierarchy "74157:mux"
@@ -301,10 +302,10 @@ Info (21057): Implemented 26 device resources after synthesis - the final resour
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 14 output pins
     Info (21061): Implemented 8 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
     Info: Peak virtual memory: 4774 megabytes
-    Info: Processing ended: Fri May 05 00:25:03 2023
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Processing ended: Fri May 05 00:58:06 2023
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:19
 
 

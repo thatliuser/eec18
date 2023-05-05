@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition"
 
-// DATE "05/05/2023 00:25:18"
+// DATE "05/05/2023 00:58:32"
 
 // 
 // Device: Altera 10M50DAF484C7G Package FBGA484
@@ -29,7 +29,7 @@
 
 `timescale 1 ps/ 1 ps
 
-module \3  (
+module part_a (
 	HEX0,
 	SW,
 	HEX1);

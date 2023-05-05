@@ -1,4 +1,4 @@
-|3
+|part_a
 HEX0[0] <= 7447:7seg.OA
 HEX0[1] <= 7447:7seg.OB
 HEX0[2] <= 7447:7seg.OC
@@ -26,7 +26,7 @@ HEX1[5] <= b:b.d5
 HEX1[6] <= b:b.d6
 
 
-|3|7447:7seg
+|part_a|7447:7seg
 OG <= 87.DB_MAX_OUTPUT_PORT_TYPE
 C => 25.IN0
 LTN => 25.IN1
@@ -48,7 +48,7 @@ OB <= 82.DB_MAX_OUTPUT_PORT_TYPE
 OA <= 81.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|3|74157:mux
+|part_a|74157:mux
 Y4 <= 25.DB_MAX_OUTPUT_PORT_TYPE
 A4 => 20.IN0
 GN => 12.IN0
@@ -67,7 +67,7 @@ A1 => 14.IN0
 B1 => 15.IN0
 
 
-|3|compare:cmp
+|part_a|compare:cmp
 Z <= cmp_ab_ac.DB_MAX_OUTPUT_PORT_TYPE
 C => cmp_ac.IN0
 A => cmp_ac.IN1
@@ -76,7 +76,7 @@ B => cmp_ab.IN1
 D => ~NO_FANOUT~
 
 
-|3|a:a
+|part_a|a:a
 d2 <= a_ab.DB_MAX_OUTPUT_PORT_TYPE
 A => a_ab.IN0
 B => a_ab.IN1
@@ -86,7 +86,7 @@ d0 <= C.DB_MAX_OUTPUT_PORT_TYPE
 C => d0.DATAIN
 
 
-|3|b:b
+|part_a|b:b
 d6 <= <VCC>
 d5 <= Z.DB_MAX_OUTPUT_PORT_TYPE
 Z => d5.DATAIN
