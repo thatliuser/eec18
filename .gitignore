@@ -1,1 +1,8 @@
-**/*.flock
+*/db/
+*incremental_db/
+*/output_files/
+*/simulation/
+*.bak
+*.qws
+*_nativelink_simulation.rpt
+*_description.txt
