@@ -62,3 +62,6 @@ set_global_assignment -name BDF_FILE roll_comb.bdf
 set_global_assignment -name BDF_FILE roll.bdf
 set_global_assignment -name BDF_FILE reg3.bdf
 set_global_assignment -name BDF_FILE 6.bdf
+set_global_assignment -name BDF_FILE ctrl.bdf
+set_global_assignment -name BDF_FILE state.bdf
+set_global_assignment -name BDF_FILE reg4.bdf
