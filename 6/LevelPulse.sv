@@ -4,37 +4,31 @@ module LevelPulse(
 	output wire pulse
 );
 
-typedef enum {
-	OFF,
-	PULSE,
-	ON
-} PulseState;
+// Sadly wires can't take enum typing
+localparam OFF = 2'b00;
+localparam PULSE = 2'b01;
+localparam ON = 2'b10;
 
-PulseState state = OFF;
+reg [1:0] state = OFF;
+wire [1:0] next;
 
-always_ff @(posedge clk) begin
+always_comb begin
 	unique case (state)
-		OFF: begin
-		if (in == 1'b1)
-			state <= PULSE;
-			
-		pulse <= 1'b0;
-		end
-		PULSE: begin
-		if (in == 1'b1)
-			state <= ON;
-		else
-			state <= OFF;
-			
-		pulse <= 1'b1;
-		end
-		ON: begin
-		if (in == 1'b0)
-			state <= OFF;
-			
-		pulse <= 1'b0;
-		end
+	OFF: begin
+		next = in ? PULSE : OFF;
+	end
+	PULSE: begin
+		next = in ? ON : OFF;	
+	end
+	ON: begin
+		next = in ? ON : OFF;
+	end
 	endcase
 end
+
+assign pulse = (next == PULSE);
+
+always_ff @(posedge clk) 
+	state <= next;
 
 endmodule
