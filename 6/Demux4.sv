@@ -1,4 +1,4 @@
-module demux4(
+module Demux4(
 	input wire in,
 	input wire [1:0] sel,
 	output wire [3:0] out
