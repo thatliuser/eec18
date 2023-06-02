@@ -4,31 +4,25 @@ module LevelPulse(
 	output wire pulse
 );
 
-// Sadly wires can't take enum typing
-localparam OFF = 2'b00;
-localparam PULSE = 2'b01;
-localparam ON = 2'b10;
-
-reg [1:0] state = OFF;
-wire [1:0] next;
+reg on = 1'b0;
+wire next;
 
 always_comb begin
-	unique case (state)
-	OFF: begin
-		next = in ? PULSE : OFF;
+	pulse = 1'b0;
+	next = on;
+	
+	if (!on) begin
+		if (in) begin
+			next = 1'b1;
+			pulse = 1'b1;
+		end
+	end else begin
+		if (!in)
+			next = 1'b0;
 	end
-	PULSE: begin
-		next = in ? ON : OFF;	
-	end
-	ON: begin
-		next = in ? ON : OFF;
-	end
-	endcase
 end
 
-assign pulse = (next == PULSE);
-
 always_ff @(posedge clk) 
-	state <= next;
+	on <= next;
 
 endmodule
