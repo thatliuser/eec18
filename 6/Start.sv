@@ -1,6 +1,7 @@
 module Start(
 	input wire btn,
 	input wire clk,
+	input wire enable,
 	output wire start
 );
 
