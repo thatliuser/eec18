@@ -7,14 +7,17 @@ module Roll(
 );
 
 initial num = 2'b00;
+reg prev_enable;
 wire [2:0] next;
 
 always_comb begin
 	choose = 1'b0;
-	// Reset number to 0 if not enabled
-	next = 0;
-
-	if (enable) begin
+	next = num;
+	
+	if (enable && !prev_enable) begin
+		// Reset number to 0 if a new roll is requested
+		next = 0;
+	end else if (enable) begin
 		if (num == 0) begin
 			// Num = 0 if btn not pressed and 1 otherwise
 			next = btn;
@@ -30,7 +33,9 @@ always_comb begin
 	end
 end
 
-always_ff @(posedge clk)
+always_ff @(posedge clk) begin
+	prev_enable <= enable;
 	num <= next;
+end
 
 endmodule
