@@ -15,10 +15,11 @@ module Game(
 wire clk;
 assign clk = MAX10_CLK1_50;
 // Low active keys
-wire btn;
-assign btn = !KEY[0];
-wire rst;
-assign rst = !KEY[1];
+wire roll_btn;
+assign roll_btn = !KEY[0];
+
+wire choose_btn;
+assign choose_btn = !KEY[1];
 
 wire [3:0] pulses;
 wire [3:0] demux_out;
@@ -37,7 +38,7 @@ wire [1:0] choose_result;
 wire won;
 
 Start start(
-	.btn(btn),
+	.btn(roll_btn),
 	.clk(clk),
 	.enable(demux_out[0]),
 	
@@ -45,7 +46,7 @@ Start start(
 );
 
 Roll roll(
-	.btn(btn),
+	.btn(roll_btn),
 	.clk(clk),
 	.enable(demux_out[1]),
 	
@@ -56,7 +57,7 @@ Roll roll(
 Choose choose(
 	.pulse_i(demux_out[2]),
 	.choice(SW[0]),
-	.confirm(btn),
+	.confirm(choose_btn),
 	.num(num),
 	.score(score),
 	.clk(clk),
@@ -84,13 +85,33 @@ Demux4 switch(
 	.out(demux_out)
 );
 
+Digit score_seg(
+	.num(score),
+	.seg(HEX0)
+);
+
+Digit num_seg(
+	.num(num),
+	.seg(HEX2)
+);
+
+Digit turns_seg(
+	.num(turns),
+	.seg(HEX5)
+);
+
+assign HEX1 = 7'b1111111;
+assign HEX3 = 7'b1111111;
+assign HEX4 = 7'b1111111;
+
+assign LEDR = {won, 7'b0000000, state};
 // Hacks to make ModelSim debugging easier!
-assign HEX0 = {5'b00000, num};
-assign HEX1 = {4'b0000, score};
-assign HEX2 = {4'b0000, turns};
-assign HEX3 = {6'b000000, state};
-assign HEX4 = {4'b0000, demux_out};
-assign HEX5 = {4'b0000, pulses};
+// assign HEX0 = {5'b00000, num};
+// assign HEX1 = {4'b0000, score};
+// assign HEX2 = {4'b0000, turns};
+// assign HEX3 = {6'b000000, state};
+// assign HEX4 = {4'b0000, demux_out};
+// assign HEX5 = {4'b0000, pulses};
 
 
 always_ff @(posedge clk) begin
