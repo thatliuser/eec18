@@ -38,14 +38,16 @@ wire won;
 
 Start start(
 	.btn(btn),
-	.clk(demux_out[0] & clk),
+	.clk(clk),
+	.enable(demux_out[0]),
 	
 	.start(pulses[0])
 );
 
 Roll roll(
 	.btn(btn),
-	.clk(demux_out[1] & clk),
+	.clk(clk),
+	.enable(demux_out[1]),
 	
 	.num(num),
 	.choose(pulses[1])
@@ -75,12 +77,21 @@ Control ctrl(
 	.state(state)
 );
 
-// Switches clk between submodules
+// Switches enable between submodules
 Demux4 switch(
 	.in(1'b1),
-	.sel(ctrl_pulse_o),
+	.sel(state),
 	.out(demux_out)
 );
+
+// Hacks to make ModelSim debugging easier!
+assign HEX0 = {5'b00000, num};
+assign HEX1 = {4'b0000, score};
+assign HEX2 = {4'b0000, turns};
+assign HEX3 = {6'b000000, state};
+assign HEX4 = {4'b0000, demux_out};
+assign HEX5 = {4'b0000, pulses};
+
 
 always_ff @(posedge clk) begin
 	score <= next_score;
