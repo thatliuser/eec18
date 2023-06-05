@@ -2,6 +2,7 @@ module Control(
 	input wire pulse_i,
 	input wire [1:0] choose_result,
 	input wire clk,
+	input wire rst,
 	// Used to trigger pulse for Choose module (high otherwise)
 	output wire pulse_o,
 	// Whether or not the player one for End module
@@ -77,8 +78,13 @@ always_comb begin
 end
 
 always_ff @(posedge clk) begin
-	state <= next_state;
-	turns <= next_turns;
+	if (rst) begin
+		state <= START;
+		turns <= 0;
+	end else begin
+		state <= next_state;
+		turns <= next_turns;
+	end
 end
 
 endmodule

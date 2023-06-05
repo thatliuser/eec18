@@ -9,6 +9,7 @@ module Choose(
 	input wire [2:0] num,
 	input wire [3:0] score,
 	input wire clk,
+	input wire rst,
 	// Next state for controller: continue, lost, won
 	output wire [1:0] result,
 	// Pulse to controller
@@ -93,8 +94,12 @@ always_comb begin
 	endcase
 end
 
-always_ff @(posedge clk)
-	state <= next;
+always_ff @(posedge clk) begin
+	if (rst)
+		state <= WAIT;
+	else
+		state <= next;
+end
 
 endmodule
 

@@ -2,6 +2,7 @@ module Start(
 	input wire btn,
 	input wire clk,
 	input wire enable,
+	input wire rst,
 	output wire start
 );
 
@@ -26,7 +27,11 @@ always_comb begin
 	end
 end
 
-always_ff @(posedge clk)
-	on <= next;
+always_ff @(posedge clk) begin
+	if (rst)
+		on <= 1'b0;
+	else
+		on <= next;
+end
 
 endmodule

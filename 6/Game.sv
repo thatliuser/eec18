@@ -41,6 +41,7 @@ Start start(
 	.btn(btn),
 	.clk(clk),
 	.enable(demux_out[0]),
+	.rst(rst),
 
 	.start(pulses[0])
 );
@@ -49,6 +50,7 @@ Roll roll(
 	.btn(btn),
 	.clk(clk),
 	.enable(demux_out[1]),
+	.rst(rst),
 
 	.num(num),
 	.choose(pulses[1])
@@ -61,6 +63,7 @@ Choose choose(
 	.num(num),
 	.score(score),
 	.clk(clk),
+	.rst(rst),
 
 	.result(choose_result),
 	.pulse_o(pulses[2]),
@@ -71,6 +74,7 @@ Control ctrl(
 	.pulse_i(ctrl_pulse_i),
 	.choose_result(choose_result),
 	.clk(clk),
+	.rst(rst),
 
 	.pulse_o(ctrl_pulse_o),
 	.won(won),
@@ -113,9 +117,11 @@ assign LEDR = {won, 7'b0000000, state};
 // assign HEX4 = {4'b0000, demux_out};
 // assign HEX5 = {4'b0000, pulses};
 
-
 always_ff @(posedge clk) begin
-	score <= next_score;
+	if (rst)
+		score <= 0;
+	else
+		score <= next_score;
 end
 
 endmodule

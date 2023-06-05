@@ -2,6 +2,7 @@ module Roll(
 	input wire btn,
 	input wire clk,
 	input wire enable,
+	input wire rst,
 	output reg [2:0] num,
 	output wire choose
 );
@@ -34,8 +35,13 @@ always_comb begin
 end
 
 always_ff @(posedge clk) begin
-	prev_enable <= enable;
-	num <= next;
+	if (rst) begin
+		prev_enable <= 0;
+		num <= 0;
+	end else begin
+		prev_enable <= enable;
+		num <= next;
+	end
 end
 
 endmodule
