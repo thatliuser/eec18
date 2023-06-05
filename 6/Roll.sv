@@ -13,7 +13,7 @@ wire [2:0] next;
 always_comb begin
 	choose = 1'b0;
 	next = num;
-	
+
 	if (enable && !prev_enable) begin
 		// Reset number to 0 if a new roll is requested
 		next = 0;
@@ -39,3 +39,4 @@ always_ff @(posedge clk) begin
 end
 
 endmodule
+

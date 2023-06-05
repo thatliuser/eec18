@@ -41,7 +41,7 @@ Start start(
 	.btn(roll_btn),
 	.clk(clk),
 	.enable(demux_out[0]),
-	
+
 	.start(pulses[0])
 );
 
@@ -49,7 +49,7 @@ Roll roll(
 	.btn(roll_btn),
 	.clk(clk),
 	.enable(demux_out[1]),
-	
+
 	.num(num),
 	.choose(pulses[1])
 );
@@ -61,7 +61,7 @@ Choose choose(
 	.num(num),
 	.score(score),
 	.clk(clk),
-	
+
 	.result(choose_result),
 	.pulse_o(pulses[2]),
 	.new_score(next_score)
@@ -71,7 +71,7 @@ Control ctrl(
 	.pulse_i(ctrl_pulse_i),
 	.choose_result(choose_result),
 	.clk(clk),
-	
+
 	.pulse_o(ctrl_pulse_o),
 	.won(won),
 	.turns(turns),

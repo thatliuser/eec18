@@ -4,7 +4,7 @@ module Demux4(
 	output wire [3:0] out
 );
 
-always_comb begin 
+always_comb begin
 	unique case (sel[1:0])
 		2'b00: out = 4'b0001;
 		2'b01: out = 4'b0010;
@@ -14,3 +14,4 @@ always_comb begin
 end
 
 endmodule
+

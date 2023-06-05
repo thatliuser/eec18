@@ -1,7 +1,7 @@
 module Choose(
 	// Input pulse to begin checking
 	input wire pulse_i,
-	// Switch for "yes" or "no" choice	
+	// Switch for "yes" or "no" choice
 	input wire choice,
 	// Confirm button to submit answer
 	input wire confirm,
@@ -45,7 +45,6 @@ always_comb begin
 		if (num == 6) begin
 			next = WAIT;
 			pulse_o = 1'b1;
-			
 			if (score > (15 - 6)) begin
 				result = LOST;
 				new_score = 0;
@@ -65,7 +64,6 @@ always_comb begin
 		if (confirm) begin
 			pulse_o = 1'b1;
 			next = WAIT;
-			
 			// Keep number
 			if (choice == 1'b1) begin
 				if (score > (15 - num)) begin
@@ -93,3 +91,4 @@ always_ff @(posedge clk)
 	state <= next;
 
 endmodule
+

@@ -35,7 +35,7 @@ always_comb begin
 	next_turns = turns;
 	pulse_o = 1'b1;
 	won = 1'b0;
-	
+
 	unique case (state)
 	START: begin
 		// Button clicked in Start module
@@ -82,3 +82,4 @@ always_ff @(posedge clk) begin
 end
 
 endmodule
+

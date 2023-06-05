@@ -1,0 +1,5 @@
+-no-tabs
++posix-eof
+-explicit-parameter-storage-type
+# IDRC because I know my states are fine
+-case-missing-default
