@@ -39,7 +39,7 @@ echo "Check if wait for choice"
 force -freeze sim:/Choose/pulse_i 0 0
 run 500ps
 
-echo "Confirm choice (don't keep, continue)"
+echo "Confirm choice (don't keep, continue) - pulse shouldn't fire until release"
 force -freeze sim:/Choose/confirm 1 0
 run 500ps
 
@@ -53,10 +53,10 @@ echo "Check if wait for choice"
 force -freeze sim:/Choose/pulse_i 0 0
 run 500ps
 
-echo "Confirm choice (keep, continue)"
+echo "Confirm choice (keep, continue) - pulse shouldn't fire until release"
 force -freeze sim:/Choose/choice 1 0
 force -freeze sim:/Choose/confirm 1 0
-run 100ps
+run 500ps
 
 echo "Check if state moves to choose for num != 6"
 force -freeze sim:/Choose/confirm 0 0
@@ -69,10 +69,10 @@ echo "Check if wait for choice"
 force -freeze sim:/Choose/pulse_i 0 0
 run 500ps
 
-echo "Confirm choice (keep, lose)"
+echo "Confirm choice (keep, lose) - pulse shouldn't fire until release"
 force -freeze sim:/Choose/choice 1 0
 force -freeze sim:/Choose/confirm 1 0
-run 100ps
+run 500ps
 
 echo "Check if state moves to choose for num != 6"
 force -freeze sim:/Choose/confirm 0 0
@@ -85,10 +85,10 @@ echo "Check if wait for choice"
 force -freeze sim:/Choose/pulse_i 0 0
 run 500ps
 
-echo "Confirm choice (keep, win)"
+echo "Confirm choice (keep, win) - pulse shouldn't fire until release"
 force -freeze sim:/Choose/choice 1 0
 force -freeze sim:/Choose/confirm 1 0
-run 100ps
+run 500ps
 
 echo "Idle"
 run 500ps

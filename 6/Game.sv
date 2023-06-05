@@ -15,11 +15,11 @@ module Game(
 wire clk;
 assign clk = MAX10_CLK1_50;
 // Low active keys
-wire roll_btn;
-assign roll_btn = !KEY[0];
+wire btn;
+assign btn = !KEY[0];
 
-wire choose_btn;
-assign choose_btn = !KEY[1];
+wire rst;
+assign rst = !KEY[1];
 
 wire [3:0] pulses;
 wire [3:0] demux_out;
@@ -38,7 +38,7 @@ wire [1:0] choose_result;
 wire won;
 
 Start start(
-	.btn(roll_btn),
+	.btn(btn),
 	.clk(clk),
 	.enable(demux_out[0]),
 
@@ -46,7 +46,7 @@ Start start(
 );
 
 Roll roll(
-	.btn(roll_btn),
+	.btn(btn),
 	.clk(clk),
 	.enable(demux_out[1]),
 
@@ -57,7 +57,7 @@ Roll roll(
 Choose choose(
 	.pulse_i(demux_out[2]),
 	.choice(SW[0]),
-	.confirm(choose_btn),
+	.confirm(btn),
 	.num(num),
 	.score(score),
 	.clk(clk),
