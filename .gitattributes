@@ -1,0 +1,8 @@
+*.qpf linguist-language=tcl
+*.qsf linguist-language=tcl
+# This isn't 100% correct because these use /**/ comments,
+# but it is definitely a dialect of Lisp. I just chose Scheme
+# because I've heard it's one of the simplest Lisp dialects so
+# it seems mostly appropriate.
+*.bdf linguist-language=scheme
+*.bsf linguist-language=scheme
