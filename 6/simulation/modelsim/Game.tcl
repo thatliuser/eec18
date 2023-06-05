@@ -1,8 +1,5 @@
-proc addAlias {signal alias size} {
-    for {set i 0} {$i < $size} {incr i} {
-        set symbol [format "sim:/Game/%s\[%s\]" $signal $i]
-        add wave -position end -group $alias $symbol
-    }
+proc addAlias {signal alias} {
+    add wave -position end -unsigned -group $alias sim:/Game/$signal
 }
 
 proc setButton {on} {
@@ -23,15 +20,16 @@ proc sim {time msg} {
     gets stdin
 }
 
-proc roll {time} {
+proc roll {num} {
     setButton 0
     sim 500ps "State should be 1 and roll should wait"
 
+    set time "${num}00ps"
     setButton 1
     sim $time "Hold button down, num should increment"
     
     setButton 0
-    sim 100ps "Release button, state should be 2 and num should freeze"
+    sim 100ps "Release button, state should be 2 and num should freeze at $num"
 }
 
 proc choose {keep} {
@@ -52,12 +50,12 @@ add wave -position end sim:/Game/SW
 add wave -position end sim:/Game/KEY
 add wave -position end -hex sim:/Game/LEDR
 
-addAlias HEX0 roll_num 3
-addAlias HEX1 score 4
-addAlias HEX2 turns 4
-addAlias HEX3 state 2
-addAlias HEX4 demux_out 4
-addAlias HEX5 ctrl_pulses 4
+addAlias HEX0 roll_num
+addAlias HEX1 score
+addAlias HEX2 turns
+addAlias HEX3 state
+addAlias HEX4 demux_out
+addAlias HEX5 ctrl_pulses
 
 force -freeze sim:/Game/MAX10_CLK1_50 1 0, 0 {50 ps} -r 100
 setSwitch 0
@@ -68,8 +66,15 @@ sim 100ps "Ensure state is 0 with no button press"
 setButton 1
 sim 500ps "Hold down button, state should stay at 0"
 
-roll 500ps
+roll 5
 choose 0
 
-roll 500ps
+roll 5
 choose 1
+
+roll 6
+sim 200ps "Choose should not wait since num was 6"
+
+roll 4
+choose 1
+sim 500ps "State should switch to 3 (won)"
