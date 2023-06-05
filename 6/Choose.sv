@@ -20,6 +20,7 @@ module Choose(
 localparam WAIT = 2'b00;
 localparam CHECK = 2'b01;
 localparam CHOOSE = 2'b10;
+localparam CONFIRM = 2'b11;
 
 // Result states
 localparam CONTINUE = 2'b00;
@@ -60,8 +61,13 @@ always_comb begin
 			next = CHOOSE;
 	end
 	CHOOSE: begin
-		// If they confirmed their choice
 		if (confirm) begin
+			next = CONFIRM;
+		end
+	end
+	CONFIRM: begin
+		// Wait until they release the button
+		if (!confirm) begin
 			pulse_o = 1'b1;
 			next = WAIT;
 			// Keep number
