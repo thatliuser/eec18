@@ -11,7 +11,8 @@ wire [2:0] next;
 
 always_comb begin
 	choose = 1'b0;
-	next = num;
+	// Reset number to 0 if not enabled
+	next = 0;
 
 	if (enable) begin
 		if (num == 0) begin
@@ -29,7 +30,7 @@ always_comb begin
 	end
 end
 
-always_ff @(posedge clk) 
+always_ff @(posedge clk)
 	num <= next;
 
 endmodule

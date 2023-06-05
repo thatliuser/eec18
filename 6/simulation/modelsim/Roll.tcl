@@ -24,3 +24,20 @@ run 1400ps
 echo "Check releasing btn in roll cycle"
 force -freeze sim:/Roll/btn 0 0
 run 300ps
+
+echo "Check if num resets to 0 on \"negedge enable\""
+force -freeze sim:/Roll/enable 0 0
+run 300ps
+
+echo "Enable again, check if num stays 0 when btn isn't pressed"
+force -freeze sim:/Roll/enable 1 0
+force -freeze sim:/Roll/btn 0 0
+run 300ps
+
+echo "Check a couple roll cycles, ensure num starts from 0"
+force -freeze sim:/Roll/btn 1 0
+run 1400ps
+
+echo "Check releasing btn, again"
+force -freeze sim:/Roll/btn 0 0
+run 300ps
