@@ -1,0 +1,45 @@
+name: Build webpage
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    # Ubuntu's version of Pandoc is too old LOL
+    runs-on: macos-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v3.3.0
+      - name: Download Pandoc
+        run: |
+          brew update
+          brew install pandoc
+      - name: Build
+        run: |
+          mkdir -p build/
+          for file in ?/?.pdf; do mkdir -p build/$(dirname $file); cp $file build/$file; done
+          pandoc --standalone --metadata title=EEC18 README.md -o build/index.html
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1.0.7
+        with:
+          path: "build/"
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/deploy-pages@v1.2.4
