@@ -22,7 +22,7 @@ jobs:
         run: |
           mkdir -p build/
           for file in ?/?.pdf; do mkdir -p build/$(dirname $file); cp $file build/$file; done
-          pandoc --standalone --metadata title=EEC18 README.md -o build/index.html
+          pandoc --variable=mainfont:sans-serif --standalone --metadata title=EEC18 README.md -o build/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1.0.7
         with:
