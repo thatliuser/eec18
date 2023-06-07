@@ -40,7 +40,7 @@ https://fpgasoftware.intel.com/eula.
 	(input)
 	(rect 232 304 400 320)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "clk" (rect 5 0 20 17)(font "Intel Clear" ))
+	(text "clk" (rect 5 0 19 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -56,7 +56,7 @@ https://fpgasoftware.intel.com/eula.
 	(input)
 	(rect 232 272 400 288)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "score[4..0]" (rect 5 0 59 12)(font "Arial" ))
+	(text "score[4..0]" (rect 5 0 58 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -117,7 +117,7 @@ https://fpgasoftware.intel.com/eula.
 	)
 )
 (symbol
-	(rect 496 304 544 336)
+	(rect 496 296 544 328)
 	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
 	(text "inst3" (rect 3 21 25 38)(font "Intel Clear" ))
 	(port
@@ -312,9 +312,9 @@ https://fpgasoftware.intel.com/eula.
 	(pt 512 288)
 )
 (connector
-	(text "won" (rect 464 304 484 321)(font "Intel Clear" ))
-	(pt 496 320)
-	(pt 464 320)
+	(text "won" (rect 464 296 484 313)(font "Intel Clear" ))
+	(pt 496 312)
+	(pt 464 312)
 )
 (connector
 	(text "leds[0]" (rect 609 264 642 281)(font "Intel Clear" ))
@@ -378,18 +378,6 @@ https://fpgasoftware.intel.com/eula.
 	(text "score[3]" (rect 510 160 547 177)(font "Intel Clear" ))
 	(pt 504 176)
 	(pt 544 176)
-)
-(connector
-	(pt 552 320)
-	(pt 552 312)
-)
-(connector
-	(pt 544 320)
-	(pt 552 320)
-)
-(connector
-	(pt 552 312)
-	(pt 544 312)
 )
 (connector
 	(text "enable" (rect 462 312 495 329)(font "Intel Clear" ))
