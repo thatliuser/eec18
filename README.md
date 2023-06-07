@@ -16,6 +16,6 @@ Sequential logic exploration: latches, flip-flops, and registers.
 ## [Lab 5](5/5.pdf)
 Finite state machines: creating a dice roller.
 
-## Lab 6
+## [Lab 6](6/6.pdf)
 Dice roll game. Player rolls a number and decides whether or not to keep it.
 6v directory contains SystemVerilog prototype I used before finalizing the schematic version.
